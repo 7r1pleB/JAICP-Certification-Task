@@ -1,0 +1,51 @@
+{
+  "positions" : [ {
+    "id" : "/",
+    "x" : 319,
+    "y" : 12
+  }, {
+    "id" : "/GeneralStates",
+    "x" : 17,
+    "y" : 163
+  }, {
+    "id" : "/Handlers",
+    "x" : 17,
+    "y" : 12
+  }, {
+    "id" : "/Start",
+    "x" : 1724,
+    "y" : 811
+  }, {
+    "id" : "/WaitFile",
+    "x" : 2462,
+    "y" : 821
+  }, {
+    "id" : "/AcceptFile",
+    "x" : 262,
+    "y" : 1839
+  }, {
+    "id" : "/ReadFile",
+    "x" : 987,
+    "y" : 1839
+  }, {
+    "id" : "/SumUpFile",
+    "x" : 1724,
+    "y" : 1646
+  }, {
+    "id" : "/GoodBye",
+    "x" : 2462,
+    "y" : 2021
+  }, {
+    "id" : "/GeneralStates/NoMatch",
+    "x" : 290,
+    "y" : 693
+  }, {
+    "id" : "/Handlers/FileTooBig",
+    "x" : 290,
+    "y" : 683
+  }, {
+    "id" : "/Handlers/LimitHandler",
+    "x" : 290,
+    "y" : 1391
+  } ]
+}
