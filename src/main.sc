@@ -26,7 +26,7 @@ theme: /
         script:
             // Обработка ответа от Telegram API
             if ($httpResponse.isOk) {
-                let result = $httpResponse.body.result;
+                var result = $httpResponse.body.result;
                 $client.name = result.first_name || "Друг";
             } else {
                 $client.name = "Друг";
