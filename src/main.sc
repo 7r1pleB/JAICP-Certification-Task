@@ -23,7 +23,7 @@ theme: /
         
         
         scriptEs6:
-            $client.name = tgApi.getClientName();
+            $client.name = "asd";
         
         a: {{ $client.name }}
         
