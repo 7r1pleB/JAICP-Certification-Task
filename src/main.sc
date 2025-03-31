@@ -5,7 +5,10 @@ require: modules.js
     name = modules
 
 require: patterns.sc
-  module = sys.zb-common
+    module = sys.zb-common
+  
+require: axios
+    
 
 init:
     bind("onAnyError", function() {
@@ -16,21 +19,30 @@ theme: /
 
     state: Start
         q!: $regex</start>
-        httpRequest:
-            url = https://api.telegram.org/bot8028377959:AAE4Sx1b1kOo6iTGYmRw50b0kBm8hwuEbZE/getChat
-            method = GET
-            dataType = JSON
-            vars = [
-                {"name": "chat_id", "value": "{{ $request.telegram?.message?.chat?.id }}"}
-            ]
+        
         scriptEs6:
-            // Обработка ответа от Telegram API
-            if ($httpResponse.isOk) {
-                var result = $httpResponse.body.result;
-                $client.name = result.first_name || "Друг";
-            } else {
-                $client.name = "Друг";
+            const axios = require('axios');
+            $jsapi.startSession();
+        
+            
+            let chatId = $request.telegram?.message?.chat?.id;
+            let botToken = "8377959:AAE4Sx1b1kOo6iTGYmRw50b0kBm8hwuEbZE";
+            let url = `https://api.telegram.org/bot${botToken}/getChat?chat_id=${chatId}`;
+        
+            // Выполнение HTTP-запроса через axios
+            let userName = "Друг";
+            try {
+                let response = await axios.get(url); 
+                if (response.data.ok) {
+                    userName = response.data.result.first_name || "Друг"; // Извлечение имени пользователя
+                }
+            } catch (error) {
+                console.error("Ошибка при выполнении запроса к Telegram API:", error);
             }
+        
+            
+            $client.name = userName;
+            
 
         if: $session.new
             random:            
