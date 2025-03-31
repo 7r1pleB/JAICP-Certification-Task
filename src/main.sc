@@ -16,7 +16,7 @@ theme: /
 
     state: Start
         q!: $regex</start>
-        HttpRequest:
+        httpRequest:
             url = https://api.telegram.org/bot8028377959:AAE4Sx1b1kOo6iTGYmRw50b0kBm8hwuEbZE/getChat
             method = GET
             dataType = JSON
