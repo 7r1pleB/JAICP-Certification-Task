@@ -21,8 +21,7 @@ theme: /
 
     state: Start
         q!: $regex</start>
-        scriptEs6:
-            $client.name = tgApi.getClientName();
+        
         if: $session.new
             random: 
                 a: "Здравствуйте! Меня зовут Артур, бот-помощник компании Just Tour. Расскажу все о погоде в городах мира и помогу с оформлением заявки на подбор тура."
