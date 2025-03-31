@@ -23,7 +23,7 @@ theme: /
         q!: $regex</start>
 
         scriptEs6: 
-            $client.name = tgApi.getClientName();
+            $client.name = tgApi.getClientName() || "ошибка";
 
         if: $session.new
             random:            
