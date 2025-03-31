@@ -6,8 +6,6 @@ require: modules.js
 
 require: patterns.sc
     module = sys.zb-common
-  
-require: axios
     
 
 init:
