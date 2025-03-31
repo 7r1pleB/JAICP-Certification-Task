@@ -6,10 +6,7 @@ require: modules.js
 
 require: patterns.sc
     module = sys.zb-common
-    
-require: telegramApi.js
-    type = scriptEs6
-    name = tgApi
+
     
 
 init:
@@ -21,11 +18,10 @@ theme: /
     state: Start
         q!: $regex</start>
         
-        
         scriptEs6:
-            $client.name = "asd";
+            Console.log('asd');
         
-        a: {{ $client.name }}
+        a: asd
         
         #random: 
         #    a: Здравствуйте! Меня зовут Артур, бот-помощник компании Just Tour. Расскажу все о погоде в городах мира и помогу с оформлением заявки на подбор тура.
