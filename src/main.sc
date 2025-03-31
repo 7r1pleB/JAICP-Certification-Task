@@ -7,6 +7,10 @@ require: modules.js
 require: patterns.sc
     module = sys.zb-common
     
+require: telegramApi.js
+    type = scriptEs6
+    name = tgApi
+    
 
 init:
     bind("onAnyError", function() {
@@ -17,30 +21,9 @@ theme: /
 
     state: Start
         q!: $regex</start>
-        
-        scriptEs6:
-            const axios = require('axios');
-            $jsapi.startSession();
-        
-            
-            let chatId = $request.telegram?.message?.chat?.id;
-            let botToken = "8377959:AAE4Sx1b1kOo6iTGYmRw50b0kBm8hwuEbZE";
-            let url = `https://api.telegram.org/bot${botToken}/getChat?chat_id=${chatId}`;
-        
-            // Выполнение HTTP-запроса через axios
-            let userName = "Друг";
-            try {
-                let response = await axios.get(url); 
-                if (response.data.ok) {
-                    userName = response.data.result.first_name || "Друг"; // Извлечение имени пользователя
-                }
-            } catch (error) {
-                console.error("Ошибка при выполнении запроса к Telegram API:", error);
-            }
-        
-            
-            $client.name = userName;
-            
+
+        scriptEs6: 
+            $client.name = tgApi.getClientName();
 
         if: $session.new
             random:            
