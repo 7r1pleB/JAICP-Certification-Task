@@ -23,7 +23,7 @@ theme: /
             vars = [
                 {"name": "chat_id", "value": "{{ $request.telegram?.message?.chat?.id }}"}
             ]
-        script:
+        scriptEs6:
             // Обработка ответа от Telegram API
             if ($httpResponse.isOk) {
                 var result = $httpResponse.body.result;
